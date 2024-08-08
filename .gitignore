@@ -1,0 +1,71 @@
+# Flutter/Dart specific
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+pubspec.lock
+
+# Build outputs
+build/
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/Flutter/Flutter.podspec.json
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/App.framework
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/Flutter/Flutter.podspec.json
+
+# CocoaPods
+ios/Podfile.lock
+ios/Pods/
+ios/Podfile
+ios/Podfile.lock
+ios/Runner.xcworkspace/
+ios/Runner.xcodeproj/
+ios/Flutter/Flutter.xcconfig
+ios/Flutter/Generated.xcconfig
+
+# Android specific
+android/.gradle/
+android/app/build/
+android/gradle/
+android/gradle.properties
+android/local.properties
+android/.idea/
+android/*.iml
+
+# macOS specific
+*.DS_Store
+
+# Windows specific
+Thumbs.db
+
+# Logs
+*.log
+
+# IDE specific
+.idea/
+*.suo
+*.ntvs_analysis.dat
+*.njsproj
+*.sln
+*.swp
+*.swo
+
+# Other files
+*.pub/
+*.dart_tool/
+*.dart_tool/
+*.packages
+*.pub-cache/
+*.pub-cache/
+*.flutter-plugins
+*.flutter-plugins-dependencies
+
+# VSCode settings
+.vscode/
+
+# Custom configurations
+*.env
