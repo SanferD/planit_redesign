@@ -467,7 +467,6 @@ class CalendarEventsMultiSliver extends MultiSliver {
     final DateTime previousEndTime; // this is the end time of the last event that was used
     final yesterdayStart = DateTime(todayStart.year, todayStart.month, todayStart.day - 1);
     final tomorrowStart = DateTime(todayStart.year, todayStart.month, todayStart.day + 1);
-    final todayEnd = DateTime(todayStart.year, todayStart.month, todayStart.day, 23, 59);
 
     // populate calendar items from yesterday, if any
     if (yesterdayCalendar != null) {

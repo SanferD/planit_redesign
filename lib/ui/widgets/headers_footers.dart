@@ -19,6 +19,8 @@ class Header extends StatefulWidget {
   final Function() jumpToToday;
   final Calendar? calendar;
 
+  DateTime get startTime => calendar?.startTime ?? dateTime;
+
   @override
   State<Header> createState() => _HeaderState();
 }
