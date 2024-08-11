@@ -371,6 +371,7 @@ class FooterButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
+      key: Key("footer-btn-$text"),
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(overlayColor: LocalColors.background_60, backgroundColor: LocalColors.t3),
       child: Text(text, style: LocalFonts.h5),

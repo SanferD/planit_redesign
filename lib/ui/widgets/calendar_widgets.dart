@@ -533,6 +533,8 @@ class TimeRangeLabel extends StatelessWidget {
   final DateTime headerCalendarDT;
   final int relativeEventIndex;
 
+  Duration get duration => endTime.difference(startTime);
+
   @override
   Widget build(BuildContext context) {
     final startTimeStr = _formatTime(startTime);

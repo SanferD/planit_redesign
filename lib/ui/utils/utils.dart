@@ -32,6 +32,7 @@ class Utils {
   static double getItemWidth(BuildContext context) {
     return MediaQuery.of(context).size.width - getVerticalLineRightOffset(context) - Configuration.verticalLineThickness;
   }
+
   static double getHeightContentsEmptyDay(BuildContext context) {
     return MediaQuery.of(context).size.height - Configuration.heightHeader;
   }
