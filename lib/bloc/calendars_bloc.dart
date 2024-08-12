@@ -75,7 +75,7 @@ class CalendarsError {
   static const internal = CalendarsError._(title: "Internal Error", message: "An unexpected internal error occurred :(");
   static const durationTooShort = CalendarsError._(title: "Duration Too Short", message: "Duration cannot be 0.");
   static const overlap = CalendarsError._(title: "Two Calendars Overlap", message: "Current calendar should not overlap with the next.");
-  static const tooLong = CalendarsError._(title: "Calendar Too Long", message: "Current calendar should not span more than 20 hours into tomorrow.");
+  static const calendarsTooLong = CalendarsError._(title: "Calendar Too Long", message: "Current calendar should not span more than 20 hours into tomorrow.");
 
   const CalendarsError._({required this.title, required this.message});
   const CalendarsError.titleTooLong({required String longTitle})
@@ -509,7 +509,7 @@ final class CalendarsBloc extends Bloc<CalendarsEvent, CalendarsState> {
 
     final tomorrow4HoursBeforeEnd = DateTime(tomorrowDate.year, tomorrowDate.month, tomorrowDate.day, 20);
     if (calendar.endTime.isAfter(tomorrow4HoursBeforeEnd)) {
-      emit(state.copyCalendarsWith(error: CalendarsError.tooLong, status: CalendarsStatus.failure));
+      emit(state.copyCalendarsWith(error: CalendarsError.calendarsTooLong, status: CalendarsStatus.failure));
       return false;
     }
     return true;
