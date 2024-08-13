@@ -12,4 +12,4 @@ This is a redesign of the original planit app found [here](https://github.com/Sa
 
 ## Demo
 
-![demo](static/demo.mp4)
+https://github.com/user-attachments/assets/27372e5b-92c9-46b9-a9c2-9d5fd30dfe13
