@@ -538,6 +538,62 @@ void main() {
     // verify that the error dialog disappears
     expect(find.byType(AlertDialog), findsNothing);
   });
+
+  testWidgets("should seamlessly scroll forward by 3 months", (tester) async {
+    // load the app
+    await _loadApp(tester);
+
+    // get screen height
+    final BuildContext context = tester.element(find.byType(Header).first);
+    final screenHeight = MediaQuery.of(context).size.height;
+
+    // scroll forward by 3 months at a rate of 5 days per scroll
+    const numDays = 3 * 30;
+    const scrollRate = 5; // days per scroll
+    const numScrolls = numDays / scrollRate;
+    final delta = scrollRate * screenHeight;
+    for (var i = 0; i < numScrolls; i++) {
+      await _scroll(tester, delta: -delta);
+    }
+
+    // verify that the current header is 3 months from now
+    final desiredDateTime =
+        DateTime.now().add(const Duration(days: numDays - 1));
+    final desiredDateStr = DateFormat.MMMd().format(desiredDateTime);
+    final findHeader = find.ancestor(
+      of: find.text(desiredDateStr),
+      matching: find.byType(Header),
+    );
+    expect(findHeader, findsOneWidget);
+  });
+
+  testWidgets("should seamlessly scroll backward by 3 months", (tester) async {
+    // load the app
+    await _loadApp(tester);
+
+    // get screen height
+    final BuildContext context = tester.element(find.byType(Header).first);
+    final screenHeight = MediaQuery.of(context).size.height;
+
+    // scroll backward by 3 months at a rate of 5 days per scroll
+    const numDays = 3 * 30;
+    const scrollRate = 5; // days per scroll
+    const numScrolls = numDays / scrollRate;
+    final delta = scrollRate * screenHeight;
+    for (var i = 0; i < numScrolls; i++) {
+      await _scroll(tester, delta: delta);
+    }
+
+    // verify that the current header is 3 months before now
+    final desiredDateTime =
+        DateTime.now().subtract(const Duration(days: numDays - 1));
+    final desiredDateStr = DateFormat.MMMd().format(desiredDateTime);
+    final findHeader = find.ancestor(
+      of: find.text(desiredDateStr),
+      matching: find.byType(Header),
+    );
+    expect(findHeader, findsOneWidget);
+  });
 }
 
 String get nowDateTimeAsHeaderDateStr =>
