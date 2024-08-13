@@ -5,3 +5,7 @@ This is a redesign of the original planit app found [here](https://github.com/Sa
 ## Build
 
 * `flutter run` should just work:)
+
+## Test
+
+* `flutter test .\integration_test\functional_test.dart`
